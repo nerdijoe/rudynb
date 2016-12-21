@@ -14,4 +14,25 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
- 
+
+
+// @brand-primary: darken(#428bca, 6.5%);
+// @link-color:  @brand-primary;
+
+body {
+  padding-top: 70px;
+}
+
+  .btn-primary {
+    background: red;
+  }
+
+  .btn-primary:hover {
+   background-color: darken(green, 15%);
+  }
+
+  //  .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+  //      color: #fff;
+  //      background-color: #00b3db;
+  //      border-color: #285e8e; /*set the color you want here*/
+  //  }
