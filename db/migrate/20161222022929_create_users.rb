@@ -1,3 +1,4 @@
+
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
@@ -18,3 +19,4 @@ class CreateUsers < ActiveRecord::Migration
     add_index :users, :remember_token
   end
 end
+
