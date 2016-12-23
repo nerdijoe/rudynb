@@ -1,11 +1,12 @@
-
 <div class="container">
   <h2>Welcome to RudynB</h2>
+
 
   <% if signed_in? %>
     <p>
       Hi <%= current_user.firstname %>!
     </p>
+
     <%= current_user.email %>
   <% else %>
     <button type="button" class="btn btn-success pull-left" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span> Sign in</button>
@@ -15,6 +16,9 @@
 
 <br><br>
   <%= link_to "Home", home_path %>
+
+  <%= link_to "Sign up", sign_up_path %>
+
 
 
 </div>
