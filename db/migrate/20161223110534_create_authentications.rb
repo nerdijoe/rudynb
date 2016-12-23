@@ -4,7 +4,7 @@ class CreateAuthentications < ActiveRecord::Migration
       t.string :uid
       t.string :token
       t.string :provider
-      t.references :user_id, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
