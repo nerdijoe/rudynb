@@ -24,6 +24,9 @@ Rails.application.routes.draw do
 
   root 'static#index'
 
+  # Omniauth
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
