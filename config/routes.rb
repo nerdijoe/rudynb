@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
-  resource :session, controller: "clearance/sessions", only: [:create]
+  # resource :session, controller: "clearance/sessions", only: [:create]
+  resource :session, only: [:create]
 
   # remove the controller to "clearance/users"
   resources :users, only: [:create] do
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get 'static/index'
 
+  get 'static/home' => "static#home", as: "home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
