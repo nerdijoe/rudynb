@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get 'static/index'
 
+  get 'static/home' => "static#home", as: "home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
