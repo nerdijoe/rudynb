@@ -34,7 +34,8 @@ class SessionsController < Clearance::SessionsController
     else
       user = User.create_with_auth_and_hash(authentication, auth_hash)
       # @next = edit_user_path(user)
-      # @notice = "User created ‐ confirm or edit details..."
+      @next = root_url
+      @notice = "User created ‐ confirm or edit details..."
     end
 
     sign_in(user)
