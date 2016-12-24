@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
       u.email = auth_hash["extra"]["raw_info"]["email"]
       u.authentications << (authentication)
       u.password = SecureRandom.hex(3)
+
+      u.profile_pic = auth_hash['info']['image']
+
       byebug
     end
 
