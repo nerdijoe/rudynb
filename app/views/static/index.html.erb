@@ -1,13 +1,36 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '343395636045684',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="container">
   <h2>Welcome to RudynB</h2>
 
 
   <% if signed_in? %>
+    <img src="<%= current_user.profile_pic %>" alt="Facebook Profile Pic" >
+
     <p>
       Hi <%= current_user.firstname %>!
     </p>
 
     <%= current_user.email %>
+
+
+
   <% else %>
     <button type="button" class="btn btn-success pull-left" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span> Sign in</button>
   <% end %>
@@ -15,9 +38,19 @@
   <%= render template: '/static/modal_signin' %>
 
 <br><br>
+  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+  <br>
   <%= link_to "Home", home_path %>
 
   <%= link_to "Sign up", sign_up_path %>
+
+
+  <div
+    class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true">
+  </div>
 
 
 
