@@ -18,7 +18,10 @@
     <% if signed_in? %>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
     <% else %>
-      <%= link_to t(".sign_in"), sign_in_path %>
+      <!-- <%= link_to t(".sign_in"), sign_in_path %> -->
+
+      <button type="button" class="btn btn-success pull-left" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span> Sign in</button>
+      <%= render template: '/static/modal_signin' %>
     <% end %>
   </div>
 

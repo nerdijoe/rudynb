@@ -17,6 +17,7 @@
 </script>
 
 <div class="container">
+  <br>
   <h2>Welcome to RudynB</h2>
 
 
@@ -28,21 +29,15 @@
     </p>
 
     <%= current_user.email %>
-
-
+    <br><br>
+    <%= link_to "Home", home_path %>
+    <br><br>
 
   <% else %>
-    <button type="button" class="btn btn-success pull-left" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span> Sign in</button>
+
   <% end %>
 
-  <%= render template: '/static/modal_signin' %>
 
-<br><br>
-  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
-  <br>
-  <%= link_to "Home", home_path %>
-
-  <%= link_to "Sign up", sign_up_path %>
 
 
   <div

@@ -36,7 +36,14 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link3</a></li>
+        <li>
+          <!-- <a href="#">Link3</a> -->
+          <% if signed_in? %>
+            <%= link_to ("Sign Out"), sign_out_path, method: :delete %>
+          <% else %>
+              <%= link_to t(".sign_in"), sign_in_path %>
+          <% end %>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
