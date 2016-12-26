@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/arunagw/omniauth-twitter.git
+  revision: 343120bf99b5dbe0515f651e82ba128609ce1a13
+  specs:
+    omniauth-twitter (1.2.1)
+      json (~> 1.3)
+      omniauth-oauth (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -95,6 +103,7 @@ GEM
     multipart-post (2.0.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    oauth (0.5.1)
     oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -106,6 +115,9 @@ GEM
       rack (>= 1.0, < 3)
     omniauth-facebook (4.0.0)
       omniauth-oauth2 (~> 1.2)
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
@@ -187,6 +199,7 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-facebook
+  omniauth-twitter!
   pg (~> 0.15)
   rails (= 4.2.6)
   sass-rails (~> 5.0)
