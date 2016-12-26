@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       u.firstname = auth_hash["extra"]["raw_info"]["name"]
       u.lastname = auth_hash["extra"]["raw_info"]["name"]
       u.email = auth_hash["extra"]["raw_info"]["email"]
+      u.email = auth_hash.uid + '@twitter.com' if auth_hash.provider == 'twitter'
       u.authentications << (authentication)
       u.password = SecureRandom.hex(3)
 
