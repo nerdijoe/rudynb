@@ -14,6 +14,59 @@
   </div>
 </div>
 
+params.require(:listing).permit(:title, :description, :address, :country, :phone, :num_bedrooms, :price, :currency, :house_rules, :tag_list)
+
+
+<div class="form-group">
+  <%= form.label :address, 'Address', class:'col-sm-2 control-label' %>
+  <div class="col-sm-10">
+    <%= form.text_field :address , class: 'form-control'%>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :country, 'Country', class:'col-sm-2 control-label' %>
+  <div class="col-sm-10">
+    <%= form.text_field :country , class: 'form-control'%>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :phone, 'Phone', class:'col-sm-2 control-label' %>
+  <div class="col-sm-10">
+    <%= form.text_field :phone , class: 'form-control'%>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :num_bedrooms, 'Num of Bedrooms', class:'col-sm-2 control-label' %>
+  <div class="col-sm-10">
+    <%= form.text_field :num_bedrooms , class: 'form-control'%>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :price, 'Price', class:'col-sm-2 control-label' %>
+  <div class="col-sm-10">
+    <%= form.text_field :price , class: 'form-control'%>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :currency, 'Currency', class:'col-sm-2 control-label' %>
+  <div class="col-sm-10">
+    <%= form.text_field :currency , class: 'form-control'%>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :house_rules, 'House Rules', class:'col-sm-2 control-label' %>
+  <div class="col-sm-10">
+    <%= form.text_area :house_rules, size: '50x5' , class: 'form-control'%>
+  </div>
+</div>
+
+
 <div class="form-group">
   <%= form.label :tag_list, 'Tags (separated by commas)', class:'col-sm-2 control-label' %>
   <div class="col-sm-10">
