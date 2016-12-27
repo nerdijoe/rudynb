@@ -2,9 +2,9 @@ class ListingsController < ApplicationController
 
   def index
     if params[:tag]
-      @listings = Listing.tagged_with(params[:tag])
+      @listings = Listing.tagged_with(params[:tag]).page(params[:page]).per_page(3)
     else
-      @listings = Listing.all
+      @listings = Listing.all.page(params[:page]).per_page(3)
     end
   end
 
