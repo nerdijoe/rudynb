@@ -45,7 +45,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     listing = Listing.find(params[:id]).destroy
     redirect_to action: 'index'
   end
