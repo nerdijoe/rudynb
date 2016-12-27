@@ -37,6 +37,9 @@ gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
 # tagging feature
 gem 'acts-as-taggable-on', '~> 4.0'
 
+gem 'will_paginate', '~> 3.1.0'
+
+
 
 # ****************************************************
 
