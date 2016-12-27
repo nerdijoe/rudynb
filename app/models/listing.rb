@@ -21,7 +21,7 @@ class Listing < ActiveRecord::Base
 
   def self.populate
 
-    8.times do |n|
+    52.times do |n|
      title =  FFaker::Venue.name
      description =  FFaker::HipsterIpsum.sentence
      address = FFaker::AddressUS.street_address
