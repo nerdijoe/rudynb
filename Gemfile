@@ -34,6 +34,10 @@ gem 'omniauth-facebook'
 # use the latest HEAD version
 gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
 
+# tagging feature
+gem 'acts-as-taggable-on', '~> 4.0'
+
+
 # ****************************************************
 
 

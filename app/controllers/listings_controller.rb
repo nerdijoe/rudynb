@@ -1,7 +1,11 @@
 class ListingsController < ApplicationController
 
   def index
-    @listings = Listing.all
+    if params[:tag]
+      @listings = Listing.tagged_with(params[:tag])
+    else
+      @listings = Listing.all
+    end
   end
 
   def show
@@ -15,7 +19,8 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
-    # byebug
+    # @listing.tag_list = listing_params[:tag_list].split(',')
+    byebug
     if @listing.save
 
       redirect_to '/listings'
@@ -48,7 +53,7 @@ class ListingsController < ApplicationController
 
   private
   def listing_params
-    params.require(:listing).permit(:title, :description, :address, :country, :phone, :num_bedrooms, :price, :currency, :house_rules)
+    params.require(:listing).permit(:title, :description, :address, :country, :phone, :num_bedrooms, :price, :currency, :house_rules, :tag_list)
   end
 
 
