@@ -7,6 +7,12 @@
 
 <h3>Listings</h3>
 
+<div id="tag_cloud">
+  <% tag_cloud Listing.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
 <% if @listings.blank? %>
   <p>
     There is no listing yet
@@ -17,7 +23,6 @@
     <% @listings.each do |listing| %>
       <li>
         <%= link_to listing.title, listing %>
-        <%= link_to listing.title, {action: 'show', id: listing.id} %>
         <b><%= link_to 'Edit', edit_listing_path(listing) %></b>
         <%= link_to 'Delete', listing, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} %>
 

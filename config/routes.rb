@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   resources :listings
 
+  get '/tags/:tag' => 'listings#index', as: "tag"
 
 
 
