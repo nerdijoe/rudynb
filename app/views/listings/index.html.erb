@@ -1,0 +1,28 @@
+<div class="container">
+
+<h2>Listing index</h2>
+
+<%= link_to 'Create new Listing', '/listings/new' %>
+
+
+<h3>Listings</h3>
+
+<% if @listings.blank? %>
+  <p>
+    There is no listing yet
+  </p>
+<% else %>
+
+  <ul id='listings'>
+    <% @listings.each do |listing| %>
+      <li>
+        <%= link_to listing.title, {action: 'show', id: listing.id} %>
+        <b><%= link_to 'Edit', {action: 'edit', id: listing.id} %></b>
+      </li>
+    <% end %>
+  </ul>
+
+
+<% end %>
+
+</div>
