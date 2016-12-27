@@ -1,7 +1,9 @@
 <div class='container'>
   <h2>Listing details</h2>
 
+
 <h3><%= @listing.title %></h3>
+<b><%= link_to 'Edit', edit_listing_path(@listing) %></b>
 
 
 <p>
@@ -10,6 +12,41 @@
     <%= @listing.description %>
   </pre>
 </p>
+
+<p>
+  <strong>Address: </strong>
+  <%= @listing.address %>
+</p>
+<p>
+  <strong>Country: </strong>
+  <%= @listing.country %>
+</p>
+<p>
+  <strong>Phone: </strong>
+  <%= @listing.phone %>
+</p>
+<p>
+  <strong>Num of Bedrooms: </strong>
+  <%= @listing.num_bedrooms %>
+</p>
+<p>
+  <strong>Price: </strong>
+  <%= @listing.price %>
+</p>
+
+<p>
+  <strong>Currency: </strong>
+  <%= @listing.currency %>
+</p>
+
+<p>
+  <strong>House Rules: </strong>
+  <pre>
+    <%= @listing.house_rules %>
+  </pre>
+</p>
+
+
 
 <p>
   Tags: <%= raw @listing.tag_list.split(/,\s+/).map { |t| link_to t, tag_path(t) }.join(', ') %>
