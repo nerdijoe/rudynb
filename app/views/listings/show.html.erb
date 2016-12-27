@@ -1,12 +1,17 @@
-
-<h2>Listing details</h2>
+<div class='container'>
+  <h2>Listing details</h2>
 
 <h3><%= @listing.title %></h3>
 
 
 <p>
-  <strong>Description: </strong> <%= @listing.description %>
+  <strong>Description: </strong>
+  <pre>
+    <%= @listing.description %>
+  </pre>
 </p>
 
 
 <%= link_to 'Back', '/listings' %>
+
+</div>

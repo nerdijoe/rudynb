@@ -32,11 +32,17 @@ class ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id])
 
+    byebug
     if @listing.update_attributes(listing_params)
       redirect_to action: 'show', id: @listing.id
     else
       render action: 'edit'
     end
+  end
+
+  def delete
+    listing = Listing.find(params[:id]).destroy
+    redirect_to action: 'index'
   end
 
 

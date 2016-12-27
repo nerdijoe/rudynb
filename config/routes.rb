@@ -36,6 +36,11 @@ Rails.application.routes.draw do
   get '/listings/:id/edit' => 'listings#edit'
   patch '/listing/:id' => 'listings#update'
 
+  # resources :listings
+
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
