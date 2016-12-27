@@ -28,6 +28,21 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
 
+  # Listing routes
+  # get '/listings' => 'listings#index'
+  # get '/listings/new' => 'listings#new'
+  # post '/listings' => 'listings#create'
+  # get '/listings/:id' => 'listings#show'
+  # get '/listings/:id/edit' => 'listings#edit'
+  # patch '/listings/:id' => 'listings#update'
+  # delete '/listings/:id' => 'listings#delete'
+
+  resources :listings
+
+
+
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
