@@ -15,7 +15,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
-    byebug
+    # byebug
     if @listing.save
 
       redirect_to '/listings'
@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id])
 
-    byebug
+    # byebug
     if @listing.update_attributes(listing_params)
       redirect_to action: 'show', id: @listing.id
     else

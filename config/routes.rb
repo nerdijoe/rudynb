@@ -29,14 +29,15 @@ Rails.application.routes.draw do
 
 
   # Listing routes
-  get '/listings' => 'listings#index'
-  get '/listings/new' => 'listings#new'
-  post '/listings' => 'listings#create'
-  get '/listings/:id' => 'listings#show'
-  get '/listings/:id/edit' => 'listings#edit'
-  patch '/listing/:id' => 'listings#update'
+  # get '/listings' => 'listings#index'
+  # get '/listings/new' => 'listings#new'
+  # post '/listings' => 'listings#create'
+  # get '/listings/:id' => 'listings#show'
+  # get '/listings/:id/edit' => 'listings#edit'
+  # patch '/listings/:id' => 'listings#update'
+  # delete '/listings/:id' => 'listings#delete'
 
-  # resources :listings
+  resources :listings
 
 
 

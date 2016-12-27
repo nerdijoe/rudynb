@@ -16,8 +16,11 @@
   <ul id='listings'>
     <% @listings.each do |listing| %>
       <li>
+        <%= link_to listing.title, listing %>
         <%= link_to listing.title, {action: 'show', id: listing.id} %>
-        <b><%= link_to 'Edit', {action: 'edit', id: listing.id} %></b>
+        <b><%= link_to 'Edit', edit_listing_path(listing) %></b>
+        <%= link_to 'Delete', listing, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} %>
+
       </li>
     <% end %>
   </ul>
