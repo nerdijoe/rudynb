@@ -32,25 +32,18 @@ class ListingsController < ApplicationController
 
   def edit
     @listing = Listing.find(params[:id])
-    # byebug
-    if @listing.user.id != current_user.id
-      redirect_to listing_path(@listing), alert: "You cannot edit other user's listing."
-    end
   end
 
   def update
     @listing = Listing.find(params[:id])
 
-    # byebug
-    if @listing.user.id == current_user.id
-      if @listing.update_attributes(listing_params)
-        redirect_to action: 'show', id: @listing.id
-      else
-        render action: 'edit'
-      end
+    if @listing.update_attributes(listing_params)
+      redirect_to action: 'show', id: @listing.id
     else
-      redirect_to listing_path(@listing), alert: "You cannot edit other user's listing."
+      # render action: 'edit'
+      redirect_to listing_path(@listing), alert: "System error, cannot update your listing"
     end
+
   end
 
   def destroy
