@@ -21,8 +21,8 @@ class Listing < ActiveRecord::Base
 
   def self.populate
 
-    52.times do |n|
-     title =  FFaker::Venue.name
+    5.times do |n|
+     title =  FFaker::Movie.title
      description =  FFaker::HipsterIpsum.sentence
      address = FFaker::AddressUS.street_address
      country  = FFaker::AddressUS.country
@@ -32,7 +32,7 @@ class Listing < ActiveRecord::Base
      currency = "USD"
      house_rules = FFaker::HipsterIpsum.paragraph
 
-     Listing.create!(
+     listing = Listing.create!(
        title: title,
        description: description,
        address: address,
@@ -43,6 +43,8 @@ class Listing < ActiveRecord::Base
        currency: currency,
        house_rules: house_rules
      )
+     listing.tag_list = FFaker::CheesyLingo.word
+
     end
   end
 
