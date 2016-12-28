@@ -1,11 +1,17 @@
 <div class='container'>
   <h2>Listing details</h2>
 
-
-<!-- <h3><%= @listing.title %></h3> -->
-
 <p>
-  <b><%= link_to 'Edit', edit_listing_path(@listing) %></b>
+  <b>
+    <%= link_to 'Edit', edit_listing_path(@listing) %>
+
+    <% if !current_user.customer? %>
+      <%= link_to 'Delete', @listing, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} %>
+    <% end %>
+  </b>
+
+</p>
+<p>
   <br>
   <% if @listing.verified? %>
     <%= link_to 'Unverify', verify_path(@listing), method: :post, data: {confirm: "Are you sure you want to UN-verify this listing?"} %>

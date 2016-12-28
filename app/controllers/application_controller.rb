@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def allow?(controller, action)
     if current_user.customer?
       # controller == 'listings' && action == 'index'
-      controller == 'listings' && action.in?(%w[index show new create])
+      controller == 'listings' && action.in?(%w[index show new create edit update])
     else
       true
     end
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   private
   def authorize
     if !allow?(params[:controller], params[:action])
-      redirect_to listings_path, alert: "Not authorized"
+      redirect_to listing_path(params[:id]), alert: "Not authorized"
     end
   end
 
