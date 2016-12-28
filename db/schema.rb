@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227080648) do
+ActiveRecord::Schema.define(version: 20161228020017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(version: 20161227080648) do
     t.string   "currency"
     t.string   "house_rules"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "verified",     default: false, null: false
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree
@@ -72,18 +73,19 @@ ActiveRecord::Schema.define(version: 20161227080648) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email",                          null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "email",                                      null: false
     t.string   "encrypted_password", limit: 128
     t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, null: false
-    t.string   "firstname",                      null: false
-    t.string   "lastname",                       null: false
+    t.string   "remember_token",     limit: 128,             null: false
+    t.string   "firstname",                                  null: false
+    t.string   "lastname",                                   null: false
     t.string   "phone"
     t.string   "nationality"
     t.string   "profile_pic"
     t.integer  "age"
+    t.integer  "role",                           default: 0, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

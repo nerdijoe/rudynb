@@ -4,8 +4,7 @@
 
 <%= link_to 'Create new Listing', '/listings/new' %>
 
-
-<h3>Listings</h3>
+<h3><%= link_to "Listings", listings_path %></h3>
 
 <div id="tag_cloud">
   <% tag_cloud Listing.tag_counts, %w[s m l] do |tag, css_class| %>
@@ -22,13 +21,15 @@
     <%= will_paginate @listings, previous_label: h("<"), next_label: h(">") %>
   </div>
 
+  <p>
+    <strong>Total listings: </strong><%= @listings.count %>
+  </p>
+
   <ul id='listings'>
     <% @listings.each do |listing| %>
       <li>
+        <%= render partial: '/listings/verify', locals: {listing: listing} %>
         <%= link_to listing.title, listing %>
-        <b><%= link_to 'Edit', edit_listing_path(listing) %></b>
-        <%= link_to 'Delete', listing, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} %>
-
       </li>
     <% end %>
   </ul>

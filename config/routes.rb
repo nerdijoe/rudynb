@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   # delete '/listings/:id' => 'listings#delete'
 
   resources :listings
+  post 'listings/:id' => 'listings#verify', as: "verify"
+
 
   get '/tags/:tag' => 'listings#index', as: "tag"
 
