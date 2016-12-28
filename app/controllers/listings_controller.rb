@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :authorize, only: :edit
 
   def index
     if params[:tag]
@@ -51,9 +52,17 @@ class ListingsController < ApplicationController
   end
 
 
+
+
   private
   def listing_params
     params.require(:listing).permit(:title, :description, :address, :country, :phone, :num_bedrooms, :price, :currency, :house_rules, :tag_list)
+  end
+
+  def authorize
+    if current_user.customer?
+      redirect_to listings_path, alert: "Not authorized"
+    end
   end
 
 
