@@ -2,9 +2,9 @@ class ListingsController < ApplicationController
 
   def index
     if params[:tag]
-      @listings = Listing.tagged_with(params[:tag]).page(params[:page]).per_page(3)
+      @listings = Listing.tagged_with(params[:tag]).page(params[:page]).per_page(10)
     else
-      @listings = Listing.all.page(params[:page]).per_page(3)
+      @listings = Listing.all.page(params[:page]).per_page(10)
     end
   end
 
@@ -45,7 +45,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     listing = Listing.find(params[:id]).destroy
     redirect_to action: 'index'
   end
