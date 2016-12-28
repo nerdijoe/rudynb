@@ -16,4 +16,4 @@
 /config/application.yml
 
 # Ignore public uploads
-/public/uploads
+/public/uploads/tmp
