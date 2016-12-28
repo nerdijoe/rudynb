@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  
+
 
   def hello
     render html: "hello, rudy!"
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def allow?(controller, action)
     if current_user.customer?
       # controller == 'listings' && action == 'index'
-      controller == 'listings' && action.in?(%w[index show])
+      controller == 'listings' && action.in?(%w[index show new create])
     else
       true
     end
