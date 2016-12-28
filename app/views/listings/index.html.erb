@@ -4,7 +4,7 @@
 
 <%= link_to 'Create new Listing', '/listings/new' %>
 
-<h3>Listings</h3>
+<h3><%= link_to "Listings", listings_path %></h3>
 
 <div id="tag_cloud">
   <% tag_cloud Listing.tag_counts, %w[s m l] do |tag, css_class| %>
@@ -20,6 +20,10 @@
   <div class="flickr_pagination">
     <%= will_paginate @listings, previous_label: h("<"), next_label: h(">") %>
   </div>
+
+  <p>
+    <strong>Total listings: </strong><%= @listings.count %>
+  </p>
 
   <ul id='listings'>
     <% @listings.each do |listing| %>
