@@ -19,22 +19,6 @@ class ApplicationController < ActionController::Base
         if action.in?(%w[index show new create])
           return true
         elsif action.in?(%w[edit update])
-          if Listing.find(params[:id]).user_id == current_user.id
-            return true
-          else
-            false
-          end
-        else
-          false
-        end
-      else
-        false
-      end
-
-      if controller == 'listings'
-        if action.in?(%w[index show new create])
-          return true
-        elsif action.in?(%w[edit update])
           # user can only edit his own listing
           if Listing.find(params[:id]).user_id == current_user.id
             return true

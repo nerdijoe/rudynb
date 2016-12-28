@@ -3,8 +3,9 @@
 
 <p>
   <b>
-
-    <%= link_to 'Edit', edit_listing_path(@listing) %>
+    <% if @listing.user_id == current_user.id || !current_user.customer? %>
+      <%= link_to 'Edit', edit_listing_path(@listing) %>
+    <% end %>
 
     <% if !current_user.customer? %>
       <%= link_to 'Delete', @listing, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} %>
