@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :authorize
 
   def index
     if params[:tag]
@@ -50,12 +51,19 @@ class ListingsController < ApplicationController
     redirect_to action: 'index'
   end
 
+  def verify
+    @listing = Listing.find(params[:id])
+    @listing.verified ^= true
+    @listing.save
 
+    # redirect_to action: 'show', id: @listing.id
+    redirect_to listing_path(@listing)
+  end
 
 
   private
   def listing_params
-    params.require(:listing).permit(:title, :description, :address, :country, :phone, :num_bedrooms, :price, :currency, :house_rules, :tag_list)
+    params.require(:listing).permit(:title, :description, :address, :country, :phone, :num_bedrooms, :price, :currency, :house_rules, :tag_list, :verified)
   end
 
 

@@ -24,6 +24,8 @@
   <ul id='listings'>
     <% @listings.each do |listing| %>
       <li>
+        <%= render partial: '/listings/verify', locals: {listing: listing} %>
+
         <%= link_to listing.title, listing %>
         <b><%= link_to 'Edit', edit_listing_path(listing) %></b>
         <%= link_to 'Delete', listing, method: :delete, data: {confirm: "Are you sure you want to delete this listing?"} %>

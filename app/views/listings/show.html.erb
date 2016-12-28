@@ -2,9 +2,23 @@
   <h2>Listing details</h2>
 
 
-<h3><%= @listing.title %></h3>
-<b><%= link_to 'Edit', edit_listing_path(@listing) %></b>
+<!-- <h3><%= @listing.title %></h3> -->
 
+<p>
+  <b><%= link_to 'Edit', edit_listing_path(@listing) %></b>
+  <br>
+  <% if @listing.verified? %>
+    <%= link_to 'Unverify', verify_path(@listing), method: :post, data: {confirm: "Are you sure you want to UN-verify this listing?"} %>
+  <% else %>
+    <%= link_to 'Verify', verify_path(@listing), method: :post, data: {confirm: "Are you sure you want to verify this listing?"} %>
+  <% end %>
+
+</p>
+
+<p>
+  <strong><%= @listing.title %></strong>
+  <%= render partial: '/listings/verify', locals: {listing: @listing} %>
+</p>
 
 <p>
   <strong>Description: </strong>
