@@ -21,7 +21,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     # @listing.tag_list = listing_params[:tag_list].split(',')
-    byebug
+    
     if @listing.save
 
       redirect_to '/listings'
