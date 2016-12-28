@@ -13,7 +13,17 @@
   <%= form.text_field :email, type: 'email' %>
 </div>
 
+<div class="text-field">
+  <%= form.label :phone, 'Phone' %>
+  <%= form.text_field :phone %>
+</div>
+
+<div class="text-field">
+  <%= form.label :nationality, 'Nationality' %>
+  <%= form.text_field :nationality %>
+</div>
+
 <div class="password-field">
   <%= form.label :password %>
-  <%= form.password_field :password %>
+  <%= form.password_field :password, required: true %>
 </div>

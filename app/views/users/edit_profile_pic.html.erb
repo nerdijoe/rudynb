@@ -1,0 +1,21 @@
+<div class='container'>
+
+<h2>Edit User Profile Picture</h2>
+
+  <%= form_for @user, html: {multipart: true} do |form| %>
+    <%= render partial: '/users/form_profile_pic', locals: {form: form} %>
+
+    <div class="submit-field">
+      <%= form.submit 'Save Changes' %>
+    </div>
+
+  <% end %>
+
+<div id="alert_msg">
+
+</div>
+
+<p><%= link_to 'Back', user_path(@user.id) %></p>
+
+
+</div>
