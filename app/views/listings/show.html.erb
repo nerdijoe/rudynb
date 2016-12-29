@@ -28,8 +28,9 @@
 
 <p>
   <%= link_to 'Upload Photos', action: 'upload_photos', id: @listing.id %>
-
 </p>
+
+<%= render "/reservations/form" %>
 
 <% if @listing.photos.count > 0 %>
   <%= render partial: '/listings/photos', object: @listing %>
@@ -91,6 +92,16 @@
 <p>
   Tags: <%= raw @listing.tag_list.split(/,\s+/).map { |t| link_to t, tag_path(t) }.join(', ') %>
 </p>
+
+<p>
+  <h3>Reservations</h3>
+  <p>Total: <%= @listing.reservations.count %></p>
+
+  <% @listing.reservations.order(start_date: :asc).each do |r| %>
+    <p> <%= r.user.email %> Start <%= r.start_date %>, End <%= r.end_date %>, num guests <%= r.num_guests %> </p>
+  <% end %>
+</p>
+
 
 <p>
   <%= link_to 'Back', listings_path %>

@@ -44,12 +44,16 @@ Rails.application.routes.draw do
   # patch '/listings/:id' => 'listings#update'
   # delete '/listings/:id' => 'listings#delete'
 
-  resources :listings
+  resources :listings do
+    resources :reservations, only: [:create]
+  end
   post 'listings/:id' => 'listings#verify', as: "verify"
   get '/listings/:id/upload_photos' => 'listings#upload_photos', as: 'upload_photos'
 
   get '/tags/:tag' => 'listings#index', as: "tag"
 
+
+  resources :reservations , only: [:destroy]
 
 
 
