@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   enum role: [ :customer, :moderator, :superadmin ]
 
+  mount_uploader :profile_pic, ImageUploader
+
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
 

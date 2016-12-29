@@ -1,0 +1,21 @@
+<div class='container'>
+
+<h2>Edit User</h2>
+
+
+
+  <%= form_for @user do |form| %>
+    <%= render partial: '/users/form', object: form %>
+
+    <div class="submit-field">
+      <%= form.submit 'Save Changes' %>
+    </div>
+
+  <% end %>
+
+
+<div id="alert_msg">
+
+</div>
+
+</div>

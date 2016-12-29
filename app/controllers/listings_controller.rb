@@ -21,7 +21,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     # @listing.tag_list = listing_params[:tag_list].split(',')
-    
+
     if @listing.save
 
       redirect_to '/listings'
@@ -47,7 +47,7 @@ class ListingsController < ApplicationController
   end
 
   def destroy
-    listing = Listing.find(params[:id]).destroy
+    Listing.find(params[:id]).destroy
     redirect_to action: 'index'
   end
 

@@ -10,6 +10,13 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
+  get '/users/:id' => 'users#show', as: 'user'
+  get '/users/:id/edit' => 'users#edit', as: 'edit_user'
+  patch '/users/:id' => 'users#update'
+
+  get '/users/:id/edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
+  # patch '/users/:id/profile_pic' => 'users#update_profile_pic'
+
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
