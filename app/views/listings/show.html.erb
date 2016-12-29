@@ -27,6 +27,14 @@
 </p>
 
 <p>
+  <%= link_to 'Upload Photos', action: 'upload_photos', id: @listing.id %>
+
+</p>
+
+
+<%= render partial: '/listings/photos', object: @listing %>
+
+<p>
   <strong><%= @listing.title %></strong>
   <%= render partial: '/listings/verify', locals: {listing: @listing} %>
 </p>
@@ -70,8 +78,6 @@
     <%= @listing.house_rules %>
   </pre>
 </p>
-
-
 
 <p>
   Tags: <%= raw @listing.tag_list.split(/,\s+/).map { |t| link_to t, tag_path(t) }.join(', ') %>

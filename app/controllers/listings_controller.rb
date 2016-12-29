@@ -36,8 +36,9 @@ class ListingsController < ApplicationController
 
   def update
     @listing = Listing.find(params[:id])
-
+    byebug
     if @listing.update_attributes(listing_params)
+      byebug
       redirect_to action: 'show', id: @listing.id
     else
       # render action: 'edit'
@@ -60,10 +61,15 @@ class ListingsController < ApplicationController
     redirect_to listing_path(@listing)
   end
 
+  def upload_photos
+    @listing = Listing.find(params[:id])
+
+  end
+
 
   private
   def listing_params
-    params.require(:listing).permit(:title, :description, :address, :country, :phone, :num_bedrooms, :price, :currency, :house_rules, :tag_list, :verified)
+    params.require(:listing).permit(:title, :description, :address, :country, :phone, :num_bedrooms, :price, :currency, :house_rules, :tag_list, :verified, {photos: []})
   end
 
 
