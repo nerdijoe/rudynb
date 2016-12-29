@@ -31,8 +31,9 @@
 
 </p>
 
-
-<%= render partial: '/listings/photos', object: @listing %>
+<% if @listing.photos.count > 0 %>
+  <%= render partial: '/listings/photos', object: @listing %>
+<% end %>
 
 <p>
   <strong><%= @listing.title %></strong>
@@ -84,7 +85,7 @@
 </p>
 
 <p>
-  <%= link_to 'Back', listings_path %>  
+  <%= link_to 'Back', listings_path %>
 </p>
 
 </div>

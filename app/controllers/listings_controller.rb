@@ -36,9 +36,7 @@ class ListingsController < ApplicationController
 
   def update
     @listing = Listing.find(params[:id])
-    byebug
     if @listing.update_attributes(listing_params)
-      byebug
       redirect_to action: 'show', id: @listing.id
     else
       # render action: 'edit'
