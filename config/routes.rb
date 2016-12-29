@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 
   resources :listings
   post 'listings/:id' => 'listings#verify', as: "verify"
-
+  get '/listings/:id/upload_photos' => 'listings#upload_photos', as: 'upload_photos'
 
   get '/tags/:tag' => 'listings#index', as: "tag"
 

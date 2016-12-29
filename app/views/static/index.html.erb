@@ -22,7 +22,7 @@
 
 
   <% if signed_in? %>
-    <%= image_tag current_user.profile_pic.thumb.url %>
+    <%= image_tag current_user.profile_pic.thumb.url, class: "img-circle" %>
 
     <p>
       Hi <%= current_user.firstname %>!

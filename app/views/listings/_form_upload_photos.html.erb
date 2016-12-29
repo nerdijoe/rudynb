@@ -1,0 +1,9 @@
+
+<div class="form-group">
+  <%= form.label :photos, 'Photos', class:'col-sm-2 control-label' %>
+  <div class="col-sm-10">
+    <p class="help-block">You can upload multiple photos.</p>
+    <%= form.file_field :photos, multiple: true %>
+
+  </div>
+</div>

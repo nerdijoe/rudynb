@@ -7,5 +7,18 @@
   line-height: 1.6em;
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
-  .l { font-size: 1.8em; }  
+  .l { font-size: 1.8em; }
+}
+
+.tales {
+  width: 100%;
+}
+.carousel-inner{
+  width:100%;
+  max-height: 800px !important;
+}
+
+//center the image in the carousel
+.carousel-inner img {
+  margin: auto;
 }

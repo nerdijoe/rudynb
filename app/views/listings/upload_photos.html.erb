@@ -1,0 +1,19 @@
+<div class='container'>
+
+<h2>Upload Listing Photos</h2>
+
+<%= form_for @listing, html: {class: 'form-horizontal', multipart: true} do |form| %>
+  <%= render partial: '/listings/form_upload_photos', locals: {form: form} %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= form.submit 'Save changes!' %>
+    </div>
+  </div>
+
+<% end %>
+
+
+<%= link_to 'Back', '/listings' %>
+
+</div>

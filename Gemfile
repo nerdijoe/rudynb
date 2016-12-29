@@ -42,9 +42,11 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'ffaker'
 
 # image upload
-gem 'carrierwave', '~> 1.0'
+# gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "mini_magick"
-
+# image upload to cloud
+gem "fog-aws"
 # ****************************************************
 
 

@@ -6,7 +6,7 @@
 <p><%= link_to 'Edit', action: 'edit', id: @user.id %></p>
 
 <p>
-  <%= image_tag @user.profile_pic.thumb.url %>
+    <%= image_tag @user.profile_pic.thumb.url , class: "img-circle" %>
 </p>
 <p><%= link_to 'Update Profile Picture', action: 'edit_profile_pic', id: @user.id %></p>
 
