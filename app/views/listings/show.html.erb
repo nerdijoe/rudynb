@@ -83,6 +83,8 @@
   Tags: <%= raw @listing.tag_list.split(/,\s+/).map { |t| link_to t, tag_path(t) }.join(', ') %>
 </p>
 
-<%= link_to 'Back', listings_path %>
+<p>
+  <%= link_to 'Back', listings_path %>  
+</p>
 
 </div>

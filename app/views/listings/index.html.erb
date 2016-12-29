@@ -28,6 +28,9 @@
   <ul id='listings'>
     <% @listings.each do |listing| %>
       <li>
+        <% if listing.photos.count > 0 %>
+          <p><%= image_tag listing.photos[0].thumb.url, class: "img-rounded" %></p>
+        <% end %>
         <%= render partial: '/listings/verify', locals: {listing: listing} %>
         <%= link_to listing.title, listing %>
       </li>
