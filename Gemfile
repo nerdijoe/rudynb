@@ -45,7 +45,8 @@ gem 'ffaker'
 # gem 'carrierwave', '~> 1.0'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "mini_magick"
-
+# image upload to cloud
+gem "fog-aws"
 # ****************************************************
 
 
