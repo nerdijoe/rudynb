@@ -110,6 +110,8 @@
 </p>
 
 
-<p><%= link_to 'Back', listings_path %></p>
+<p>
+  <%= link_to "back", request.referer.present? ? request.referer : default_path %>
+</p>
 
 </div>

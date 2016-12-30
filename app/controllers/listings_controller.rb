@@ -25,7 +25,7 @@ class ListingsController < ApplicationController
 
     if @listing.save
 
-      redirect_to '/listings'
+      redirect_to user_listings_path(current_user)
     else
       render root_path
     end
@@ -65,6 +65,9 @@ class ListingsController < ApplicationController
 
   end
 
+  def user_listings
+    @listings = User.find(params[:id]).listings
+  end
 
   private
   def listing_params
