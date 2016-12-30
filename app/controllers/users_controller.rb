@@ -56,11 +56,6 @@ class UsersController < Clearance::UsersController
   # end
   #
 
-  def reservations
-    @reservations = current_user.reservations
-  end
-
-
   private
   def user_params
     params.require(:user).permit(:firstname, :lastname, :phone, :nationality, :email, :password, :profile_pic)

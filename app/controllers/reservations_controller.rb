@@ -18,6 +18,12 @@ class ReservationsController < ApplicationController
   def destroy
   end
 
+  def user_reservations
+    # can only see his own reservations
+    @reservations = current_user.reservations
+  end
+
+
   private
   def reservation_param
     params.require(:reservation).permit(:num_guests, :start_date, :end_date)

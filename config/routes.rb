@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/users/:id/edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
   # patch '/users/:id/profile_pic' => 'users#update_profile_pic'
 
-  get '/users/:id/reservations' => 'users#reservations', as: 'user_reservations'
+  get '/users/:id/reservations' => 'reservations#user_reservations', as: 'user_reservations'
   get '/users/:id/listings' => 'listings#user_listings', as: 'user_listings'
 
 
