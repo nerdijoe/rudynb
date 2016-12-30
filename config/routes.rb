@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
+
+    # resources :reservations, only: [:show]
+
   end
 
   get '/users/:id' => 'users#show', as: 'user'
@@ -16,6 +19,9 @@ Rails.application.routes.draw do
 
   get '/users/:id/edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
   # patch '/users/:id/profile_pic' => 'users#update_profile_pic'
+
+  get '/users/:id/reservation' => 'users#reservation', as: 'user_reservation'
+
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
@@ -44,12 +50,16 @@ Rails.application.routes.draw do
   # patch '/listings/:id' => 'listings#update'
   # delete '/listings/:id' => 'listings#delete'
 
-  resources :listings
+  resources :listings do
+    resources :reservations, only: [:create]
+  end
   post 'listings/:id' => 'listings#verify', as: "verify"
   get '/listings/:id/upload_photos' => 'listings#upload_photos', as: 'upload_photos'
 
   get '/tags/:tag' => 'listings#index', as: "tag"
 
+
+  resources :reservations , only: [:destroy]
 
 
 

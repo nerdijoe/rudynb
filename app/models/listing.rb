@@ -1,13 +1,15 @@
 require 'ffaker'
 
 class Listing < ActiveRecord::Base
+
+  # Associations
   belongs_to :user
+  has_many :reservations, :dependent => :destroy
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   # acts_as_taggable_on :skills, :interests
 
   mount_uploaders :photos, ImageUploader
-
 
   def tag_list
     self.tags.map { |t| t.name }.join(", ")
