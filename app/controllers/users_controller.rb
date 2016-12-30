@@ -35,7 +35,7 @@ class UsersController < Clearance::UsersController
     end
   end
 
-  
+
   def edit_profile_pic
     @user = User.find(params[:id])
   end
@@ -54,6 +54,12 @@ class UsersController < Clearance::UsersController
   #
   # end
   #
+
+  def reservation
+    @reservations = current_user.reservations
+  end
+
+
 
 
   private

@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to listing_path(@listing)
     else
+      # @errors = @reservation.errors.full_messages
       redirect_to listing_path(@listing), alert: @reservation.errors.full_messages
     end
 
@@ -15,6 +16,10 @@ class ReservationsController < ApplicationController
 
 
   def destroy
+  end
+
+  def show
+    @reservations = current_user.reservations
   end
 
 

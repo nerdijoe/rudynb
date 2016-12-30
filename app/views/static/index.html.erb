@@ -38,6 +38,8 @@
 
     <p><%= link_to 'See Listings', '/listings' %></p>
 
+    <p><%= link_to 'My reservation', [current_user, :reservation] %></p>
+
   <% else %>
 
   <% end %>

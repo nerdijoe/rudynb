@@ -1,0 +1,13 @@
+<div class='container'>
+
+
+<h2>My Reservation</h2>
+
+<p>Total: <%= @reservations.count %></p>
+
+<% @reservations.order(start_date: :asc).each do |r| %>
+  <p> <%= r.listing.title %>, Start <%= r.start_date %>, End <%= r.end_date %>, num guests <%= r.num_guests %> </p>
+<% end %>
+
+
+</div>

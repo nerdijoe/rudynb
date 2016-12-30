@@ -14,16 +14,14 @@ class Reservation < ActiveRecord::Base
   end
 
   def check_overlapping_dates
-    
-    overlap = false
-    listing.reservations.each do |r|
-      if overlap?(self, r)
-        overlap = true
+
+    listing.reservations.each do |old_reservation|
+      if overlap?(self, old_reservation)
+        return errors.add(:overlapping_dates, "Conflicting dates with existing reservations")
       end
     end
 
-    return true if !overlap
-    errors.add(:overlapping_dates, "Conflicting dates with existing reservations")
+    return true
   end
 
   def overlap?(x,y)
