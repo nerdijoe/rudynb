@@ -12,7 +12,7 @@ class UsersController < Clearance::UsersController
       end
       # redirect_to sign_in_path
     else
-      render root_path
+      redirect_to root_path, alert: "Cannot signup"
     end
   end
 
@@ -28,10 +28,11 @@ class UsersController < Clearance::UsersController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      redirect_to action: 'show', id: @user.id
+      # redirect_to action: 'show', id: @user.id
+      redirect_to user_path(@user)
     else
       # render action: 'edit'
-      redirect_to action: 'show', id: @user.id, alert: "System error, cannot update your profile"
+      redirect_to user_path(@user), alert: "System error, cannot update your profile"
     end
   end
 
@@ -55,15 +56,7 @@ class UsersController < Clearance::UsersController
   # end
   #
 
-  def reservation
-    @reservations = current_user.reservations
-  end
-
-
-
-
   private
-
   def user_params
     params.require(:user).permit(:firstname, :lastname, :phone, :nationality, :email, :password, :profile_pic)
   end

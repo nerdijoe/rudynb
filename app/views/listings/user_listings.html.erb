@@ -1,0 +1,17 @@
+<div class='container'>
+
+
+<h2>My Listings</h2>
+
+<p>Total: <%= @listings.count %></p>
+
+<% @listings.order(created_at: :asc).each do |r| %>
+  <p> <%= link_to r.title, r %> </p>
+<% end %>
+
+
+
+<p><%= link_to 'Back', root_path %></p>
+
+
+</div>

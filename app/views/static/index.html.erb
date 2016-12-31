@@ -36,9 +36,13 @@
 
     <p><%= link_to "Home", home_path %></p>
 
-    <p><%= link_to 'See Listings', '/listings' %></p>
+    <p><%= link_to 'Create new Listing', '/listings/new' %></p>
 
-    <p><%= link_to 'My reservation', [current_user, :reservation] %></p>
+
+    <p><%= link_to 'See All Listings', '/listings' %></p>
+
+    <p><%= link_to 'My reservations', [current_user, :reservations] %></p>
+    <p><%= link_to 'My listings', [current_user, :listings] %></p>
 
   <% else %>
 

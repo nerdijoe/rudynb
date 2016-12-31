@@ -37,6 +37,11 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
+          <% if signed_in? %>
+            <%= link_to current_user.email, user_path(current_user)  %>
+          <% end %>
+        </li>
+        <li>
           <!-- <a href="#">Link3</a> -->
           <% if signed_in? %>
             <%= link_to ("Sign Out"), sign_out_path, method: :delete %>

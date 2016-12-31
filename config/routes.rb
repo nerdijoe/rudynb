@@ -4,23 +4,23 @@ Rails.application.routes.draw do
   resource :session, only: [:create]
 
   # remove the controller to "clearance/users"
-  resources :users, only: [:create] do
+  resources :users, only: [:create, :show, :edit, :update] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
 
-    # resources :reservations, only: [:show]
 
   end
 
-  get '/users/:id' => 'users#show', as: 'user'
-  get '/users/:id/edit' => 'users#edit', as: 'edit_user'
-  patch '/users/:id' => 'users#update'
+  # get '/users/:id' => 'users#show', as: 'user'
+  # get '/users/:id/edit' => 'users#edit', as: 'edit_user'
+  # patch '/users/:id' => 'users#update'
 
   get '/users/:id/edit_profile_pic' => 'users#edit_profile_pic', as: 'edit_profile_pic'
   # patch '/users/:id/profile_pic' => 'users#update_profile_pic'
 
-  get '/users/:id/reservation' => 'users#reservation', as: 'user_reservation'
+  get '/users/:id/reservations' => 'reservations#user_reservations', as: 'user_reservations'
+  get '/users/:id/listings' => 'listings#user_listings', as: 'user_listings'
 
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
@@ -52,6 +52,7 @@ Rails.application.routes.draw do
 
   resources :listings do
     resources :reservations, only: [:create]
+
   end
   post 'listings/:id' => 'listings#verify', as: "verify"
   get '/listings/:id/upload_photos' => 'listings#upload_photos', as: 'upload_photos'

@@ -27,10 +27,16 @@
 </p>
 
 <p>
-  <%= link_to 'Upload Photos', action: 'upload_photos', id: @listing.id %>
+  <%= link_to 'Upload Photos', upload_photos_path(@listing) %>
 </p>
 
 <%= render "/reservations/form" %>
+
+<% if @errors.present? %>
+  <div>
+    <%= @errors %>
+  </div>
+<% end %>
 
 
 <% if @listing.photos.count > 0 %>
@@ -105,7 +111,7 @@
 
 
 <p>
-  <%= link_to 'Back', listings_path %>
+  <%= link_to "back", request.referer.present? ? request.referer : default_path %>
 </p>
 
 </div>
