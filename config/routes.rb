@@ -9,8 +9,6 @@ Rails.application.routes.draw do
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
 
-    # resources :listings, only: [:index]
-    # resources :reservations, only: [:show]
 
   end
 
@@ -54,6 +52,7 @@ Rails.application.routes.draw do
 
   resources :listings do
     resources :reservations, only: [:create]
+
   end
   post 'listings/:id' => 'listings#verify', as: "verify"
   get '/listings/:id/upload_photos' => 'listings#upload_photos', as: 'upload_photos'
