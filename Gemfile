@@ -47,6 +47,10 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "mini_magick"
 # image upload to cloud
 gem "fog-aws"
+
+gem 'braintree'
+
+
 # ****************************************************
 
 
