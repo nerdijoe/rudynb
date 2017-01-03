@@ -1,20 +1,31 @@
 
-<div class="container">
+<div class='container'>
 
-</div>
+
 <h2>Payment</h2>
 
-<p>
- Amount: <%= @amount %>
-</p>
+<p> Start date: <%= @reservation.start_date %> </p>
+<p> End   date: <%= @reservation.end_date %> </p>
+<p> Total: <%= @days %> days</p>
+<p> Price per night: <%= @reservation.listing.price %> <%= @reservation.listing.currency %></p>
+<p> Amount = <%= @amount %> <%= @reservation.listing.currency %> </p>
 
 
-<div class="demo-frame">
+<div class="panel panel-default bootstrap-basic">
+  <div class="panel-heading">
+    <h3 class="panel-title">Enter Card Details</h3>
+  </div>
 
-  <%= form_for :checkout_form, url: reservation_payments_path, html: {id: "cardForm" } do |form| %>
+  <%= form_for :checkout_form, url: reservation_payments_path(@reservation.id), html: {id: "cardForm", class: 'panel-body' } do |form| %>
+
+  <div class="row">
+
+
+  <div class="form-group">
 
   <%= form.label :card_number, "Credit Card Number", html: {class: "hosted-fields--label"}  %>
   <div id="card-number" class="hosted-field"></div>
+  </div>
 
   <%= form.label :expiration_date, "Expiration Date", html: {class: "hosted-fields--label"} %>
   <div id="expiration-date" class="hosted-field"></div>
@@ -25,14 +36,15 @@
   <%= form.hidden_field :payment_method_nonce %>
 
   <div class ="button-container">
-    <%= form.submit "Purchase", disabled: true, class: "btn btn-primary", id: "submit-payment-btn" %>
+    <%= form.submit "Pay now", disabled: true, class: "btn btn-primary", id: "submit-payment-btn" %>
   </div>
 
   <% end %>
 </div>
 
-</div>  <!-- end of container -->
+</div>
 
+</div> <!-- end of container -->
 
 
 <!-- Load the Client component. -->
