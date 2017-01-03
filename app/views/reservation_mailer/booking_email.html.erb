@@ -2,10 +2,20 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF‐8' http‐equiv='Content‐Type' />
+
   </head>
 
   <body>
-    <h1>Congratulations <%= @host.email %>! You have received a booking from <%= @customer.email %></h1>
+    <h1>Congratulations!</h1>
+    <p>
+      You have received a booking from <%= @customer.email %>
+    </p>
+
+    <h3><%= @reservation.listing.title %></h3>
+    <% if @reservation.listing.photos.count > 0 %>
+      <p><%= image_tag @reservation.listing.photos[0].thumb.url, class: "img-rounded" %></p>
+    <% end %>
+
     <p>
       You can see details of your new reservation here: <%= @reservation.id %>
     </p>
