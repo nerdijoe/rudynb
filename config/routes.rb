@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'braintree/new'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   # resource :session, controller: "clearance/sessions", only: [:create]
   resource :session, only: [:create]
@@ -8,7 +10,6 @@ Rails.application.routes.draw do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
-
 
   end
 
@@ -60,7 +61,10 @@ Rails.application.routes.draw do
   get '/tags/:tag' => 'listings#index', as: "tag"
 
 
-  resources :reservations , only: [:destroy]
+  resources :reservations , only: [:destroy] do
+    resource :braintree, only: [:new]
+    
+  end
 
 
 
