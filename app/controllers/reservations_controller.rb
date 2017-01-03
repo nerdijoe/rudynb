@@ -6,6 +6,8 @@ class ReservationsController < ApplicationController
     @reservation.listing = @listing
 
     if @reservation.save
+      ReservationMailer.booking_email(current_user, @listing.user, @reservation.id).deliver_now
+      byebug
       redirect_to listing_path(@listing)
     else
       @errors = @reservation.errors.full_messages

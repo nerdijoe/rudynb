@@ -50,6 +50,7 @@ gem "fog-aws"
 
 gem 'braintree'
 
+gem "letter_opener", :group => :development
 
 # ****************************************************
 
