@@ -22,8 +22,6 @@ class SearchesController < ApplicationController
     @listings = @listings.min_price(@search.min_price) if @search.min_price.present?
     @listings = @listings.max_price(@search.max_price) if @search.max_price.present?
 
-    byebug
-
   end
 
   private
