@@ -15,6 +15,7 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
 
     @listings = Listing.all
+    @listings = @listings.search_by_keyword(@search.keyword) if @search.keyword.present?
     @listings = @listings.city(@search.city) if @search.city.present?
     @listings = @listings.num_bedrooms(@search.num_bedrooms) if @search.num_bedrooms.present?
     @listings = @listings.num_guests(@search.num_guests) if @search.num_guests.present?

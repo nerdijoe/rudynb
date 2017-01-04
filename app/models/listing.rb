@@ -16,7 +16,10 @@ class Listing < ActiveRecord::Base
   scope :num_bedrooms,  -> (num_bedrooms) { where('num_bedrooms >= ?', num_bedrooms) }
   scope :min_price,     -> (min_price) { where('price >= ?', min_price) }
   scope :max_price,     -> (max_price) { where('price <= ?', max_price) }
-  
+
+  include PgSearch
+  pg_search_scope :search_by_keyword, :against => [:title, :description, :address, :house_rules]
+
   def tag_list
     self.tags.map { |t| t.name }.join(", ")
   end
