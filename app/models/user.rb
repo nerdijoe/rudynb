@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 
       u.profile_pic = auth_hash['info']['image']
 
-      byebug
+      # byebug
     end
 
 
