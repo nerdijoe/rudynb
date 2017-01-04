@@ -3,8 +3,10 @@ class ListingsController < ApplicationController
 
   def index
     if params[:tag]
+      @listing = Listing.new
       @listings = Listing.tagged_with(params[:tag]).order(created_at: :asc).page(params[:page]).per_page(10)
     else
+      @listing = Listing.new
       @listings = Listing.all.order(created_at: :asc).page(params[:page]).per_page(10)
     end
   end

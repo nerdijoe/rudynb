@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keyword: MyString
+  city: MyString
+  country: MyString
+  min_price: 9.99
+  max_price: 9.99
+  num_bedrooms: 1
+  num_guests: 1
+
+two:
+  keyword: MyString
+  city: MyString
+  country: MyString
+  min_price: 9.99
+  max_price: 9.99
+  num_bedrooms: 1
+  num_guests: 1

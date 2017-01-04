@@ -2,33 +2,12 @@
 
 <h2>Listing index</h2>
 
-<%= link_to 'Create new Listing', '/listings/new' %>
-
-
-
-<p>
-  <%= link_to 'Search', new_search_path %>
-</p>
-
-
-
-
-<h3><%= link_to "Listings", listings_path %></h3>
-
-<div id="tag_cloud">
-  <% tag_cloud Listing.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
 
 <% if @listings.blank? %>
   <p>
-    There is no listing yet
+    Sorry, no matches.
   </p>
 <% else %>
-  <div class="flickr_pagination">
-    <%= will_paginate @listings, previous_label: h("<"), next_label: h(">") %>
-  </div>
 
   <p>
     <strong>Total listings: </strong><%= @listings.count %>
@@ -49,8 +28,4 @@
 
 <% end %>
 
-
-<p><%= link_to 'Back', root_path %></p>
-
-
-</div>
+<p><%= link_to 'Back', new_search_path %></p>
