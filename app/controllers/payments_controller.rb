@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
 
   def create
     nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
-    byebug
+    # byebug
     result = Braintree::Transaction.sale(
       :amount => get_amount(params[:reservation_id]),
       :payment_method_nonce => nonce_from_the_client,
@@ -18,7 +18,7 @@ class PaymentsController < ApplicationController
         :submit_for_settlement => true
       }
     )
-    byebug
+    # byebug
     if result.success?
       redirect_to :root, :flash => { :success => "Transaction successful!" }
     else
