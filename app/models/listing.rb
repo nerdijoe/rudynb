@@ -11,6 +11,8 @@ class Listing < ActiveRecord::Base
 
   mount_uploaders :photos, ImageUploader
 
+  scope :city, -> (city) { where(city: city) }
+
   def tag_list
     self.tags.map { |t| t.name }.join(", ")
   end

@@ -4,6 +4,25 @@
 
 <%= link_to 'Create new Listing', '/listings/new' %>
 
+<%= form_for @listing, url: listings_path, html: {method: 'get', class: 'form-horizontal'} do |form| %>
+
+  <div class="form-group">
+    <%= form.label :city, 'City', class:'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= form.select :city , ['Malang', 'Ann Arbor'], class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= form.submit 'Search' %>
+    </div>
+  </div>
+
+<% end %>
+
+
+
 <h3><%= link_to "Listings", listings_path %></h3>
 
 <div id="tag_cloud">
