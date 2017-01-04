@@ -11,8 +11,12 @@ class Listing < ActiveRecord::Base
 
   mount_uploaders :photos, ImageUploader
 
-  scope :city, -> (city) { where(city: city) }
-
+  scope :city,          -> (city) { where(city: city) }
+  scope :num_guests,    -> (num_guests) { where('max_guests >= ?', num_guests) }
+  scope :num_bedrooms,  -> (num_bedrooms) { where('num_bedrooms >= ?', num_bedrooms) }
+  scope :min_price,     -> (min_price) { where('price >= ?', min_price) }
+  scope :max_price,     -> (max_price) { where('price <= ?', max_price) }
+  
   def tag_list
     self.tags.map { |t| t.name }.join(", ")
   end

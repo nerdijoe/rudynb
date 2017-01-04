@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   # resource :session, controller: "clearance/sessions", only: [:create]
   resource :session, only: [:create]
@@ -65,8 +69,11 @@ Rails.application.routes.draw do
 
   end
 
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  resources :searches
+
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
