@@ -6,7 +6,16 @@ class ReservationsController < ApplicationController
     @reservation.listing = @listing
 
     if @reservation.save
-      ReservationMailer.booking_email(current_user, @listing.user, @reservation.id).deliver_now
+      # ReservationMailer.booking_email(current_user, @listing.user, @reservation.id).deliver_now
+
+      # ReservationMailer.booking_email(current_user, @listing.user, @reservation.id).deliver_later(wait: 1.minute)
+
+      ReservationJob.perform_later(current_user, @listing.user, @reservation.id)
+
+      # ReservationJob.perform_in(1.minute, current_user, @listing.user, @reservation.id)
+
+      # ReservationMailer.delay_for(1.minute).booking_email(current_user, @listing.user, @reservation.id)
+
       byebug
       redirect_to listing_path(@listing)
     else

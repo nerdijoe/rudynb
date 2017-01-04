@@ -52,6 +52,8 @@ gem 'braintree'
 
 gem "letter_opener", :group => :development
 
+gem 'sidekiq'
+
 # ****************************************************
 
 
