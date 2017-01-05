@@ -71,5 +71,5 @@ braintree.client.create({
 });
 
 
-console.log( "payment form ready!" );
+// console.log( "payment form ready!" );
 });
