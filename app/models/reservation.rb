@@ -1,9 +1,14 @@
 class Reservation < ActiveRecord::Base
+
+  # Associations
   belongs_to :user
   belongs_to :listing
+  has_many :payments, :dependent => :destroy
 
   validate :check_max_guests
   validate :check_overlapping_dates
+
+
 
   def check_max_guests
     if num_guests <= listing.max_guests
