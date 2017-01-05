@@ -1,9 +1,14 @@
 class Reservation < ActiveRecord::Base
+
+  # Associations
   belongs_to :user
   belongs_to :listing
+  has_many :payments, :dependent => :destroy
 
   validate :check_max_guests
   validate :check_overlapping_dates
+
+
 
   def check_max_guests
     if num_guests <= listing.max_guests
@@ -16,8 +21,10 @@ class Reservation < ActiveRecord::Base
   def check_overlapping_dates
 
     listing.reservations.each do |old_reservation|
-      if overlap?(self, old_reservation)
-        return errors.add(:overlapping_dates, "Conflicting dates with existing reservations")
+      if self.id != old_reservation.id
+        if overlap?(self, old_reservation)
+          return errors.add(:overlapping_dates, "Conflicting dates with existing reservations")
+        end
       end
     end
 
