@@ -6,7 +6,9 @@
 <p>Total: <%= @reservations.count %></p>
 
 <% @reservations.order(start_date: :asc).each do |r| %>
-  <p> <%= r.listing.title %>, Start <%= r.start_date %>, End <%= r.end_date %>, num guests <%= r.num_guests %> <%= link_to "Pay", new_reservation_payments_path(r.id) %> </p>
+  <p>
+    <%= r.listing.title %>, Start <%= r.start_date %>, End <%= r.end_date %>, num guests <%= r.num_guests %>  <% if !r.paid %>  <%= link_to "Pay", new_reservation_payments_path(r.id) %> <% end %>
+  </p>
 <% end %>
 
 
