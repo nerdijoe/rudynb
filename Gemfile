@@ -57,6 +57,8 @@ gem 'sidekiq'
 gem "skylight"
 
 gem 'pg_search'
+
+gem "rspec-rails"
 # ****************************************************
 
 
