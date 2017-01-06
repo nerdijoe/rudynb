@@ -7,7 +7,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <script src="https://js.braintreegateway.com/web/3.6.3/js/client.min.js"></script>
-  
+
   <script src="https://js.braintreegateway.com/web/3.6.3/js/hosted-fields.min.js"></script>
 
 
@@ -25,8 +25,9 @@
     <% else %>
       <!-- <%= link_to t(".sign_in"), sign_in_path %> -->
 
-      <button type="button" class="btn btn-success pull-left" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span> Sign in</button>
+      <button type="button" class="btn btn-success pull-left" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span> Sign in now</button>
       <%= render template: '/static/modal_signin' %>
+
     <% end %>
   </div>
 
