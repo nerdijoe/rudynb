@@ -6,5 +6,6 @@ FactoryGirl.define do
     phone         { Faker::PhoneNumber.phone_number }
     nationality      { 'American' }
     password       { "haha" }
+
   end
 end

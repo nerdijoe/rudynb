@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :listing do
+    user
     title         { Faker::Name.name }
     max_guests    { 5 }
     num_bedrooms  { 5 }
