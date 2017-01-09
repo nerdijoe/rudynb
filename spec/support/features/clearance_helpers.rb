@@ -12,6 +12,18 @@ module Features
       sign_in_with user.email, password
     end
 
+    def sign_in_as(user)
+      visit root_path
+      click_button "Sign in now"
+
+      within('#myModal') do
+        fill_in "Email", with: user.email
+        fill_in "Password", with: user.password
+
+        click_button "Sign in"
+      end
+    end
+
     def sign_in_with(email, password)
       visit sign_in_path
       fill_in "session_email", with: email

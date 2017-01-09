@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :authorize
+  before_action :require_login
 
   def index
     if params[:tag]

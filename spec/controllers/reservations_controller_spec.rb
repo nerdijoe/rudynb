@@ -1,5 +1,4 @@
 require "rails_helper"
-require "clearance/rspec"
 
 RSpec.describe ReservationsController, type: :controller do
   let(:user) {FactoryGirl.create(:user)}
