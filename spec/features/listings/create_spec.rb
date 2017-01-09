@@ -1,8 +1,14 @@
 require 'rails_helper'
 
 RSpec.feature "Listing", :type => :feature do
+  let(:user) {FactoryGirl.create(:user)}
+
+  before do
+    sign_in_as(user)
+  end
+
   scenario "Create a new listing" do
-    visit "/listings/new"
+    visit new_listing_path
 
     fill_in "listing_title", :with => Faker::Name.name
     fill_in "Phone", :with => "123456789"

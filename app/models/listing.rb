@@ -6,6 +6,15 @@ class Listing < ActiveRecord::Base
   belongs_to :user
   has_many :reservations, :dependent => :destroy
 
+  validates :user, presence: true
+
+  validates :title, presence: true
+  validates :max_guests, presence: true
+  validates :num_bedrooms, presence: true
+  validates :price, presence: true
+  validates :currency, presence: true
+
+
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   # acts_as_taggable_on :skills, :interests
 
