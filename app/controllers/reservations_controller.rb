@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
 
       # ReservationMailer.delay_for(1.minute).booking_email(current_user, @listing.user, @reservation.id)
 
-      
+
       redirect_to listing_path(@listing)
     else
       @errors = @reservation.errors.full_messages
