@@ -6,6 +6,8 @@ module ApplicationHelper
       # controller == 'listings' && action.in?(%w[index show new create edit update])
 
       if controller == 'listings'
+        Rails.logger.debug{action}
+        byebug
         if action.in?(%w[index show new create])
           return true
         elsif action.in?(%w[edit update])

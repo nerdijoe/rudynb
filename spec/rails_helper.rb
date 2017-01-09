@@ -8,7 +8,9 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 
 require 'support/factory_girl'
+require "clearance/rspec"
 
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
 
 # Add additional requires below this line. Rails is not loaded until this point!
 

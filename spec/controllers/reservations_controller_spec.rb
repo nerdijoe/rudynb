@@ -44,8 +44,8 @@ RSpec.describe ReservationsController, type: :controller do
       it "redirects to listing show page" do
         post :create, :listing_id => listing.id, :reservation => {num_guests: invalid_num_guest, start_date: valid_start_date, end_date: valid_start_date, user_id: user.id, listing_id: listing.id }
 
-        expect(response).to render_template("listings/show")
-
+        # expect(response).to redirect_to(listing_path(listing.id))
+        expect(response).to render_template('listings/show')
       end
 
     end

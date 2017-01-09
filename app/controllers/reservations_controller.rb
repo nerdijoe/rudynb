@@ -21,7 +21,10 @@ class ReservationsController < ApplicationController
     else
       @errors = @reservation.errors.full_messages
       # render listing_path(@listing) #, alert: @reservation.errors.full_messages
+      byebug
+      params[:id] = @listing.id
       render 'listings/show'
+
     end
 
   end

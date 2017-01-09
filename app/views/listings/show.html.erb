@@ -32,9 +32,9 @@
 
 <%= render "/reservations/form" %>
 
-<% if @errors.present? %>
+<% if @reservation.errors.full_messages.present? %>
   <div>
-    <%= @errors %>
+    <%= @reservation.errors.full_messages %>
   </div>
 <% end %>
 
@@ -111,7 +111,7 @@
 
 
 <p>
-  <%= link_to "back", request.referer.present? ? request.referer : default_path %>
+  <%= link_to 'Back', '/listings' %>
 </p>
 
 </div>
