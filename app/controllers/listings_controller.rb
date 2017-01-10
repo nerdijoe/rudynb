@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :authorize
+  before_action :require_login
 
   def index
     if params[:tag]
@@ -27,9 +27,10 @@ class ListingsController < ApplicationController
 
     if @listing.save
 
-      redirect_to user_listings_path(current_user)
+      redirect_to user_listings_path(current_user), notice: "Your listing has been created"
     else
-      render root_path
+      flash[:alert] = "Your listing is not created"
+      render 'new'
     end
   end
 
@@ -40,17 +41,20 @@ class ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id])
     if @listing.update_attributes(listing_params)
-      redirect_to action: 'show', id: @listing.id
+      # redirect_to action: 'show', id: @listing.id
+      redirect_to listing_path(@listing), notice: "Listing has been updated"
     else
-      # render action: 'edit'
-      redirect_to listing_path(@listing), alert: "System error, cannot update your listing"
+      # redirect_to listing_path(@listing), alert: "System error, cannot update your listing"
+      flash[:alert] = "System error, cannot update your listing"
+      render 'edit'
     end
 
   end
 
   def destroy
     Listing.find(params[:id]).destroy
-    redirect_to action: 'index'
+    # redirect_to action: 'index'
+    redirect_to listings_path, notice: "Your listing has been deleted."
   end
 
   def verify

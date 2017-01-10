@@ -14,7 +14,7 @@ class SearchesController < ApplicationController
   def show
     @search = Search.find(params[:id])
 
-    @listings = Listing.all
+    @listings = Listing.all.order(created_at: :asc).page(params[:page]).per_page(10)
     @listings = @listings.search_by_keyword(@search.keyword) if @search.keyword.present?
     @listings = @listings.city(@search.city) if @search.city.present?
     @listings = @listings.num_bedrooms(@search.num_bedrooms) if @search.num_bedrooms.present?
