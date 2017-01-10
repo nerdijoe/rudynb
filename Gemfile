@@ -58,6 +58,7 @@ gem "skylight"
 
 gem 'pg_search'
 
+gem "rails_best_practices"
 # ****************************************************
 
 

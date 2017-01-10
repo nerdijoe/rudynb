@@ -29,13 +29,4 @@ module ApplicationHelper
     end
   end
 
-
-  private
-  def authorize
-    if !allow?(params[:controller], params[:action], params[:id])
-      redirect_to listing_path(params[:id]), alert: "Not authorized"
-    end
-  end
-
-
 end
